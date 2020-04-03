@@ -38,6 +38,8 @@ class FunctionalTest(StaticLiveServerTestCase):
                 if time.time()-start_time>MAX_WAIT:
                     raise e
                 time.sleep(0.5)
+    def get_item_input_box(self):
+        return self.browser.find_element_by_id('id_text')
 """First test, then proceed. Like a goat
 who steps only one leg each time,
 which can climb on top of pracarious tree,
