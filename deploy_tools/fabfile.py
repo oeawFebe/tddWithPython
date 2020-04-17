@@ -6,7 +6,6 @@ REPO_URL = 'https://github.com/oeawFebe/tddWithPython.git'
 
 
 def deploy():
-    print(env)
     site_folder = f'/home/{env.user}/sites/{env.host}'
     run(f'mkdir -p {site_folder}')
     with cd(site_folder):
