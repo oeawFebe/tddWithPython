@@ -1,14 +1,14 @@
 from fabric.api import run
 from fabric.context_managers import settings, shell_env
 import os
-#import password of ssh
-PW=os.environ.get("PW")
+#import password of aws password login
 
 def _get_manage_dot_py(host):
     return f'~/sites/{host}/virtualenv/bin/python3.7 ~/sites/{host}/manage.py'
 
 
 def reset_database(host):
+    PW=os.environ.get("PW")#
     manage_dot_py = _get_manage_dot_py(host)
 
     with settings(host_string=f'ubuntu@{host}',user='ubuntu',passwd=PW):
@@ -21,6 +21,8 @@ def _get_server_env_vars(host):
 
 
 def create_session_on_server(host, email):
+    
+    PW=os.environ.get("PW")#
     manage_dot_py = _get_manage_dot_py(host)
     with settings(host_string=f'ubuntu@{host}',user='ubuntu',passwd=PW):
         env_vars = _get_server_env_vars(host)
