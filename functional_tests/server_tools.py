@@ -15,7 +15,7 @@ def reset_database(host):
         run(f'{manage_dot_py} flush --noinput')
 
 
-def _get_serer_env_vars(host):
+def _get_server_env_vars(host):
     env_lines = run(f'cat ~/sites/{host}/.env').splitlines()
     return dict(l.split("=") for l in env_lines if l)
 
